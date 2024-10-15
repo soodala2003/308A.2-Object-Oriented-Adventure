@@ -77,11 +77,33 @@ class Companion extends Character {
 }
 
 const robin = new Adventurer("Robin");
-robin.role = Adventurer.roles()[0];
-robin.companion = new Companion("Leo", "Cat");
-robin.companion.companion = new Companion("Frank", "Flea");
-robin.companion.companion.inventory = ["small hat", "sunglasses"];
+//robin.role = Adventurer.roles()[0];
+//robin.companion = new Companion("Leo", "Cat");
+//robin.companion.companion = new Companion("Frank", "Flea");
+//robin.companion.companion.inventory = ["small hat", "sunglasses"];
 
 console.log(robin);
 
+// Part 5: Gather your Party
+class AdventurerFactory {  
+    constructor (role) {
+      this.role = role;
+      this.adventurers = [];
+    }
+    generate (name) {
+      const newAdventurer = new Adventurer(name, this.role);
+      this.adventurers.push(newAdventurer);
+    }
+    findByIndex (index) {
+      return this.adventurers[index];
+    }
+    findByName (name) {
+      return this.adventurers.find((a) => a.name === name);
+    }
+}
+  
+const healers = new AdventurerFactory("Healer");
+const robin1 = healers.generate("Robin");
 
+//console.log(robin);
+console.log(healers);
