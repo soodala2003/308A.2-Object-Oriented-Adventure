@@ -27,6 +27,7 @@ adventurer.inventory.forEach(item => {
 console.log(adventurer.roll());
 console.log(adventurer.roll());
 console.log(adventurer.roll());
+console.log(adventurer);
 
 // Part 2: Class Fantasy & part 4 
 class Character {
@@ -39,16 +40,21 @@ class Character {
         const result = Math.floor(Math.random() * 20) + 1 + mod;
         console.log(`${this.name} rolled a ${result}.`);
     }
-    static MAX_HEALTH = 100;
+    //static MAX_HEALTH = 100;
 }
 
-//const robin = new Character("Robin");
-//robin.inventory = ["sword", "potion", "artifact"];
-//robin.companion = new Character("Leo");
-//robin.companion.type = "Cat";
-//robin.companion.companion = new Character("Frank");
-//robin.companion.companion.type = "Flea";
-//robin.companion.companion.inventory = ["small hat", "sunglasses"];
+const robin = new Character("Robin");
+robin.inventory = ["sword", "potion", "artifact"];
+robin.companion = new Character("Leo");
+robin.companion.type = "Cat";
+robin.companion.companion = new Character("Frank");
+robin.companion.companion.type = "Flea";
+robin.companion.companion.inventory = ["small hat", "sunglasses"];
+
+console.log(robin);
+console.log(robin.roll());
+console.log(robin.companion.roll());
+console.log(robin.companion.companion.roll());
 
 // Part 3: Class Features & part 4 
 class Adventurer extends Character {
@@ -99,13 +105,13 @@ class Companion extends Character {
     }
 }
 
-const robin = new Adventurer("Robin");
+//const robin = new Adventurer("Robin");
 //robin.role = Adventurer.roles()[0];
 //robin.companion = new Companion("Leo", "Cat");
 //robin.companion.companion = new Companion("Frank", "Flea");
 //robin.companion.companion.inventory = ["small hat", "sunglasses"];
 
-console.log(robin);
+//console.log(robin);
 
 // Part 5: Gather your Party
 class AdventurerFactory {  
@@ -129,4 +135,4 @@ const healers = new AdventurerFactory("Healer");
 const robin1 = healers.generate("Robin");
 
 //console.log(robin);
-console.log(healers);
+//console.log(healers);
