@@ -18,7 +18,7 @@ const adventurer = {
     }
 }
 
-// Part 2: Class Fantasy
+// Part 2: Class Fantasy & part 4 
 class Character {
     constructor (name) {
       this.name = name;
@@ -29,6 +29,7 @@ class Character {
         const result = Math.floor(Math.random() * 20) + 1 + mod;
         console.log(`${this.name} rolled a ${result}.`);
     }
+    static MAX_HEALTH = 100;
 }
 
 //const robin = new Character("Robin");
@@ -39,7 +40,7 @@ class Character {
 //robin.companion.companion.type = "Flea";
 //robin.companion.companion.inventory = ["small hat", "sunglasses"];
 
-// Part 3: Class Features
+// Part 3: Class Features & part 4 
 class Adventurer extends Character {
     constructor (name, role) {
       super(name);
@@ -53,6 +54,18 @@ class Adventurer extends Character {
       console.log(`${this.name} is scouting ahead...`);
       super.roll();
     }
+    static roles() {
+        return ["Fighter", "Healer", "Wizard"];
+    }
+    isMatch () {
+        for (let i = 0; i < roles().length; i++) {
+            if (role === roles()[i]) {
+                return true;
+            } else {
+                return false;
+            }
+        }            
+    }
 }
 
 class Companion extends Character {
@@ -63,11 +76,12 @@ class Companion extends Character {
     }
 }
 
-const robin = new Adventurer("Robin", "fighter");
-//robin.inventory = ["sword", "potion", "artifact"];
+const robin = new Adventurer("Robin");
+robin.role = Adventurer.roles()[0];
 robin.companion = new Companion("Leo", "Cat");
 robin.companion.companion = new Companion("Frank", "Flea");
 robin.companion.companion.inventory = ["small hat", "sunglasses"];
 
 console.log(robin);
-    
+
+
