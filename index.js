@@ -18,6 +18,16 @@ const adventurer = {
     }
 }
 
+console.log(adventurer.inventory[0]); // sword
+
+adventurer.inventory.forEach(item => {
+    console.log(item);
+});
+
+console.log(adventurer.roll());
+console.log(adventurer.roll());
+console.log(adventurer.roll());
+
 // Part 2: Class Fantasy & part 4 
 class Character {
     constructor (name) {
@@ -67,6 +77,19 @@ class Adventurer extends Character {
         }            
     }
 }
+
+function duel(adventurer = "Adventurer") {
+    //const adventurerRoll = super.roll();
+    //const opposingRoll = super.roll();
+    /* if (adventurerRoll > opposingRoll) {
+        opposingRoll.health = opposingRoll.health - 1; 
+    } else {
+        this.health = this.health - 1;
+    } */
+    return ;
+}
+
+
 
 class Companion extends Character {
     constructor (name, type) {
